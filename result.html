@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #43cea2, #185a9d);
+            text-align: center;
+            color: white;
+        }
+
+        .box {
+            background: white;
+            color: black;
+            width: 350px;
+            margin: 80px auto;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .card {
+            background: #f2f2f2;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            background: #333;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Assigned Volunteers</h1>
+
+<div class="box">
+
+{% if volunteers|length == 0 %}
+    <p style="color:red;">⚠️ No volunteers available</p>
+{% endif %}
+
+{% for v in volunteers %}
+    <div class="card">
+        <b>{{ v.name }}</b><br>
+        Skill: {{ v.skill }}<br>
+        Location: {{ v.location }}
+    </div>
+{% endfor %}
+
+<br>
+<a href="/">Go Back</a>
+
+</div>
+
+</body>
+</html>
